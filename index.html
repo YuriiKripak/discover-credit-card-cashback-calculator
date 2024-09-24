@@ -536,33 +536,28 @@
             links[i].href = CONFIG.referralLink;
         }
     }
-    document.addEventListener('DOMContentLoaded', updateReferralLinks);
-</script>
- document.querySelector('.menu-toggle').addEventListener('click', function() {
-    this.classList.toggle('active');
-    document.querySelector('.nav-menu').classList.toggle('active');
-});
-</script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновление реферальных ссылок
+        updateReferralLinks();
 
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Закрываем меню при клике вне его
+        document.addEventListener('click', function(event) {
+            const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
     });
-
-    // Закрываем меню при клике вне его
-    document.addEventListener('click', function(event) {
-        const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
-        if (!isClickInside && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-        }
-    });
-});
 </script>
 </body>
 </html>
