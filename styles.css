@@ -258,3 +258,69 @@ a:hover, a:focus {
         font-size: 0.9rem;
     }
 }
+.faq-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.faq-table th {
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.faq-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.faq-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.faq-table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.faq-table tr:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .faq-table, .faq-table thead, .faq-table tbody, .faq-table th, .faq-table td, .faq-table tr {
+        display: block;
+    }
+    
+    .faq-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .faq-table tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    
+    .faq-table td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    
+    .faq-table td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+}
