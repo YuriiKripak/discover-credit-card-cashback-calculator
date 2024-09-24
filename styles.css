@@ -7,6 +7,7 @@
     --header-bg: #FFFFFF;
     --footer-bg: #333333;
     --content-padding: 5%;
+    --content-padding-mobile: 15px; /* Минимальный отступ для мобильных */
     --content-max-width: 1200px;
     --transition-duration: 0.3s;
     --border-radius: 5px;
@@ -29,17 +30,19 @@ body {
     background-color: var(--background-color);
 }
 
-/* Контейнер для контента с отступами */
-.content-container {
+/* Глобальный контейнер */
+.container {
+    width: 100%;
     max-width: var(--content-max-width);
     margin: 0 auto;
-    padding: 0 var(--content-padding);
+    padding-left: var(--content-padding);
+    padding-right: var(--content-padding);
 }
 
 /* Стили шапки */
 header {
     background-color: var(--header-bg);
-    padding: 1rem 0;
+    padding: 1rem var(--content-padding);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
@@ -93,7 +96,7 @@ nav {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 4rem 0;
+    padding: 4rem var(--content-padding);
     width: 100%;
 }
 
@@ -111,7 +114,7 @@ section,
 #referral {
     background-color: white;
     margin-bottom: 2rem;
-    padding: var(--vertical-padding) 0;
+    padding: var(--vertical-padding) var(--content-padding);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -190,7 +193,7 @@ dd {
 /* Секция калькулятора */
 #calculator {
     background-color: #f9f9f9;
-    padding: 30px 0;
+    padding: 30px var(--content-padding);
 }
 
 .calculator-container {
@@ -268,7 +271,7 @@ dd {
 /* Секция подачи заявок */
 #apply {
     text-align: center;
-    padding: var(--vertical-padding) 0;
+    padding: var(--vertical-padding) var(--content-padding);
 }
 
 /* CTA Кнопка */
@@ -301,7 +304,7 @@ footer {
     background-color: var(--footer-bg);
     color: white;
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem var(--content-padding);
     font-size: 0.9rem;
     width: 100%;
 }
@@ -370,8 +373,20 @@ a:focus {
 
 /* Медиазапросы для адаптивности */
 @media (max-width: 768px) {
-    .content-container {
-        padding: 0 var(--content-padding);
+    :root {
+        --content-padding: var(--content-padding-mobile);
+    }
+
+    .container,
+    header,
+    #hero,
+    section,
+    #referral,
+    #calculator,
+    #apply,
+    footer {
+        padding-left: var(--content-padding-mobile);
+        padding-right: var(--content-padding-mobile);
     }
 
     header h1 {
@@ -436,7 +451,8 @@ a:focus {
     }
 
     main, section, #referral, #calculator, #apply {
-        padding: var(--vertical-padding-mobile) 0;
+        padding-top: var(--vertical-padding-mobile);
+        padding-bottom: var(--vertical-padding-mobile);
     }
 }
 
