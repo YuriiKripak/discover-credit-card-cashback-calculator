@@ -436,19 +436,3 @@ a:hover, a:focus {
 nav ul li::before {
     content: none;
 }
-
-/* Остальные стили вашего сайта */
-
-ul li::before {
-    content: '✓';
-    color: #FF6000;
-    position: absolute;
-    left: -1.5rem; /* Сдвигаем галочку влево */
-    font-weight: bold;
-}
-
-li {
-    position: relative;
-    padding-left: 2rem; /* Увеличиваем отступ для текста */
-}
-
