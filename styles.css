@@ -45,7 +45,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-
 /* Main content styles */
 main {
     padding: 2rem 0;
@@ -87,23 +86,34 @@ h3 {
     font-size: 2.5rem;
 }
 
-/* Benefits section */
-#benefits ul {
+/* Common list styles for all sections */
+ul {
     list-style: none;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
 }
 
-#benefits li {
+li {
     margin-bottom: 0.5rem;
     position: relative;
     padding-left: 1.5rem;
 }
 
-#benefits li::before {
+ul li::before {
     content: '✓';
     color: #FF6000;
     position: absolute;
     left: 0;
+}
+
+/* Нумерованные списки сохраняют стандартные стили */
+ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+}
+
+ol li {
+    margin-bottom: 0.5rem;
+    padding-left: 0; /* Убираем дополнительное смещение для нумерованных списков */
 }
 
 /* Referral section */
@@ -114,16 +124,6 @@ h3 {
 #referral p, #referral ul, #referral ol, #referral dl {
     text-align: left;
     margin-bottom: 1rem;
-}
-
-/* Common list styles */
-section ul, section ol {
-    padding-left: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-section li {
-    margin-bottom: 0.5rem;
 }
 
 /* Definition list styles */
@@ -217,7 +217,7 @@ dd {
     text-align: center;
 }
 
-/* Добавим стили для кнопки расчета, если она есть */
+/* Add styles for button if present */
 .calculator-container button {
     background-color: #FF6000;
     color: white;
@@ -309,7 +309,6 @@ a:hover, a:focus {
     }
 }
 
-
 .faq-table {
     width: 100%;
     border-collapse: collapse;
@@ -345,24 +344,19 @@ a:hover, a:focus {
     transition: background-color 0.3s ease;
 }
 
-/* Для мобильных устройств */
+/* For mobile devices */
 @media (max-width: 600px) {
     .faq-table {
-        width: 100%; /* Делаем таблицу на всю ширину экрана */
-        display: block; /* Блок для горизонтальной прокрутки */
-        overflow-x: auto; /* Включаем горизонтальную прокрутку */
+        width: 100%;
+        display: block;
+        overflow-x: auto;
     }
     
-    /* Дополнительно можно добавить минимальную ширину для ячеек, чтобы не складывались в один столбик */
     .faq-table th, .faq-table td {
-        min-width: 150px; /* Устанавливаем минимальную ширину для ячеек */
-        white-space: nowrap; /* Предотвращаем перенос строк */
+        min-width: 150px;
+        white-space: nowrap;
     }
 }
-
-
-
-
 
 .referral-image-container {
     width: 100%;
