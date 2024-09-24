@@ -276,19 +276,16 @@ dd {
 }
 
 /* CTA Кнопка */
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    font-weight: bold;
-    transition: background-color var(--transition-duration) ease;
+.apply-now-button {
+    font-size: 1.2em;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.cta-button:hover {
-    background-color: var(--secondary-color);
+.apply-now-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Стили футера */
