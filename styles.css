@@ -308,10 +308,14 @@ a:hover, a:focus {
         font-size: 0.9rem;
     }
 }
+
+
 .faq-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    display: block; /* Чтобы прокрутка применялась ко всей таблице */
 }
 
 .faq-table th {
@@ -341,39 +345,23 @@ a:hover, a:focus {
     transition: background-color 0.3s ease;
 }
 
+/* Для мобильных устройств */
 @media (max-width: 600px) {
-    .faq-table, .faq-table thead, .faq-table tbody, .faq-table th, .faq-table td, .faq-table tr {
-        display: block;
+    .faq-table {
+        width: 100%; /* Делаем таблицу на всю ширину экрана */
+        display: block; /* Блок для горизонтальной прокрутки */
+        overflow-x: auto; /* Включаем горизонтальную прокрутку */
     }
     
-    .faq-table thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    
-    .faq-table tr {
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-    }
-    
-    .faq-table td {
-        border: none;
-        position: relative;
-        padding-left: 50%;
-    }
-    
-    .faq-table td:before {
-        position: absolute;
-        top: 6px;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        content: attr(data-label);
-        font-weight: bold;
+    /* Дополнительно можно добавить минимальную ширину для ячеек, чтобы не складывались в один столбик */
+    .faq-table th, .faq-table td {
+        min-width: 150px; /* Устанавливаем минимальную ширину для ячеек */
+        white-space: nowrap; /* Предотвращаем перенос строк */
     }
 }
+
+
+
 
 
 .referral-image-container {
