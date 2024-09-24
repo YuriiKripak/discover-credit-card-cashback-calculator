@@ -3,104 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Card Cashback Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .calculator {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-        }
-        .calculator input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .calculator button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .calculator button:hover {
-            background-color: #218838;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-    </style>
+    <title>Discover Card Referral - Get $100 Bonus | Student-Friendly Credit Card</title>
+    <meta name="description" content="Refer a friend to Discover Card and both get a $100 bonus. Perfect for students and first-time cardholders. Enjoy cashback rewards and build your credit history.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
 <body>
+    <header>
+        <h1>Discover Card Referral Program</h1>
+        <nav>
+            <ul>
+                <li><a href="#benefits">Card Benefits</a></li>
+                <li><a href="#referral">Referral Bonus</a></li>
+                <li><a href="#calculator">Cashback Calculator</a></li>
+                <li><a href="#apply">Apply Now</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="calculator">
-    <h2>Credit Card Cashback Calculator</h2>
-    
-    <!-- Input for spending categories -->
-    <label for="grocery">Monthly Grocery Spending ($)</label>
-    <input type="number" id="grocery" placeholder="Enter amount">
-    
-    <label for="restaurant">Monthly Restaurant Spending ($)</label>
-    <input type="number" id="restaurant" placeholder="Enter amount">
-    
-    <label for="gas">Monthly Gas Spending ($)</label>
-    <input type="number" id="gas" placeholder="Enter amount">
-    
-    <label for="other">Other Monthly Purchases ($)</label>
-    <input type="number" id="other" placeholder="Enter amount">
-    
-    <!-- Dropdown for period selection -->
-    <label for="period">Select Period</label>
-    <select id="period">
-        <option value="1">1 Month</option>
-        <option value="3">3 Months</option>
-        <option value="12">1 Year</option>
-    </select>
-    
-    <button onclick="calculateCashback()">Calculate</button>
-    
-    <!-- Result -->
-    <div id="result" class="result"></div>
-</div>
+    <main>
+        <section id="hero">
+            <h2>Refer a Friend and Both Get a $100 Bonus!</h2>
+            <p>Perfect for students and first-time cardholders. Start building your credit history today.</p>
+        </section>
 
-<script>
-    function calculateCashback() {
-        // Get user inputs
-        var grocery = parseFloat(document.getElementById('grocery').value) || 0;
-        var restaurant = parseFloat(document.getElementById('restaurant').value) || 0;
-        var gas = parseFloat(document.getElementById('gas').value) || 0;
-        var other = parseFloat(document.getElementById('other').value) || 0;
-        var period = parseInt(document.getElementById('period').value);
-        
-        // Cashback percentages
-        var cashback5 = 0.05;
-        var cashback1 = 0.01;
-        
-        // Calculate cashback
-        var cashback5Total = (grocery + restaurant + gas) * cashback5 * period;
-        var cashback1Total = other * cashback1 * period;
-        var totalCashback = cashback5Total + cashback1Total;
-        
-        // Apply Cashback Match for the first year
-        if (period === 12) {
-            totalCashback *= 2;
-        }
-        
-        // Display the result
-        document.getElementById('result').innerHTML = 'Your total cashback: $' + totalCashback.toFixed(2);
-    }
-</script>
+        <section id="benefits">
+            <h2>Discover it® Cash Back Card Benefits</h2>
+            <ul>
+                <li>5% cashback in rotating categories (up to quarterly maximum)</li>
+                <li>1% cashback on all other purchases</li>
+                <li>Cashback Match for new cardmembers in the first year</li>
+                <li>No annual fee</li>
+                <li>0% intro APR on purchases and balance transfers for 15 months</li>
+                <li>Free FICO® Credit Score</li>
+                <li>U.S.-based customer service</li>
+                <li>Freeze it® on/off switch for your account</li>
+            </ul>
+        </section>
 
+        <section id="referral">
+            <h2>$100 Referral Bonus</h2>
+            <p>When you refer a friend to Discover, you'll both receive a $100 bonus after they are approved and make their first purchase within 3 months.</p>
+            <a href="#apply" class="cta-button">Get Your Referral Link</a>
+        </section>
+
+        <section id="calculator">
+            <h2>Cashback Calculator</h2>
+            <div id="calculator-root"></div>
+        </section>
+
+        <section id="apply">
+            <h2>Apply for Your Discover it® Cash Back Card</h2>
+            <p>Ready to start earning cashback and building your credit? Apply now using our referral link!</p>
+            <a href="https://refer.discover.com/your-referral-link" class="cta-button">Apply Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Discover Card Referral Program. This page is not affiliated with or endorsed by Discover Financial Services.</p>
+    </footer>
+
+    <script type="text/babel">
+        // React component will be inserted here
+        ReactDOM.render(
+            React.createElement(DiscoverCardCalculator),
+            document.getElementById('calculator-root')
+        );
+    </script>
 </body>
 </html>
