@@ -21,8 +21,8 @@ body {
 
 /* Header styles */
 header {
-    background-color: #FFFFFF; /* Изменили цвет фона на белый */
-    color: black; /* Изменили цвет текста на черный */
+    background-color: #FFFFFF;
+    color: white;
     padding: 1rem 0;
 }
 
@@ -33,15 +33,16 @@ header h1 {
     font-weight: bold;
 }
 
-nav ul li a {
-    color: black; /* Изменили цвет ссылок навигации на черный */
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease; /* Добавили плавный переход для изменения цвета */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
 }
 
-nav ul li a:hover {
-    color: blue; /* При наведении меняем цвет на синий */
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 
