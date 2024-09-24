@@ -1,3 +1,3 @@
 var CONFIG = {
-    referralLink: "https://bit.ly/referdiscovercom"
+    referralLink: "https://bit.ly/referdiscoverit"
 };
