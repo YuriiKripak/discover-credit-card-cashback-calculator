@@ -29,6 +29,8 @@ header {
 header h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #000000;
+    font-weight: bold;
 }
 
 nav ul {
