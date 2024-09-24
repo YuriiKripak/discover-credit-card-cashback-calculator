@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Cashback Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .calculator {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .calculator input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .calculator button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Credit Card Cashback Calculator</h2>
+    
+    <!-- Input for spending categories -->
+    <label for="grocery">Monthly Grocery Spending ($)</label>
+    <input type="number" id="grocery" placeholder="Enter amount">
+    
+    <label for="restaurant">Monthly Restaurant Spending ($)</label>
+    <input type="number" id="restaurant" placeholder="Enter amount">
+    
+    <label for="gas">Monthly Gas Spending ($)</label>
+    <input type="number" id="gas" placeholder="Enter amount">
+    
+    <label for="other">Other Monthly Purchases ($)</label>
+    <input type="number" id="other" placeholder="Enter amount">
+    
+    <!-- Dropdown for period selection -->
+    <label for="period">Select Period</label>
+    <select id="period">
+        <option value="1">1 Month</option>
+        <option value="3">3 Months</option>
+        <option value="12">1 Year</option>
+    </select>
+    
+    <button onclick="calculateCashback()">Calculate</button>
+    
+    <!-- Result -->
+    <div id="result" class="result"></div>
+</div>
+
+<script>
+    function calculateCashback() {
+        // Get user inputs
+        var grocery = parseFloat(document.getElementById('grocery').value) || 0;
+        var restaurant = parseFloat(document.getElementById('restaurant').value) || 0;
+        var gas = parseFloat(document.getElementById('gas').value) || 0;
+        var other = parseFloat(document.getElementById('other').value) || 0;
+        var period = parseInt(document.getElementById('period').value);
+        
+        // Cashback percentages
+        var cashback5 = 0.05;
+        var cashback1 = 0.01;
+        
+        // Calculate cashback
+        var cashback5Total = (grocery + restaurant + gas) * cashback5 * period;
+        var cashback1Total = other * cashback1 * period;
+        var totalCashback = cashback5Total + cashback1Total;
+        
+        // Apply Cashback Match for the first year
+        if (period === 12) {
+            totalCashback *= 2;
+        }
+        
+        // Display the result
+        document.getElementById('result').innerHTML = 'Your total cashback: $' + totalCashback.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
