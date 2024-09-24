@@ -1,13 +1,13 @@
 /* CSS-переменные для глобальных значений */
 :root {
-    --primary-color: #FF6000; /* Жёлтый цвет галочек */
+    --primary-color: #FF6000;
     --secondary-color: #e55600;
     --background-color: #f4f4f4;
     --text-color: #333;
     --header-bg: #FFFFFF;
     --footer-bg: #333333;
-    --container-padding: 20px;
-    --container-padding-mobile: 10px;
+    --content-padding: 5%;
+    --content-max-width: 1200px;
     --transition-duration: 0.3s;
     --border-radius: 5px;
     --font-family-base: Arial, sans-serif;
@@ -29,12 +29,11 @@ body {
     background-color: var(--background-color);
 }
 
-/* Глобальный контейнер */
-.container {
-    width: 90%;
-    max-width: 1200px;
+/* Контейнер для контента с отступами */
+.content-container {
+    max-width: var(--content-max-width);
     margin: 0 auto;
-    padding: 0 var(--container-padding);
+    padding: 0 var(--content-padding);
 }
 
 /* Стили шапки */
@@ -42,7 +41,7 @@ header {
     background-color: var(--header-bg);
     padding: 1rem 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative; /* Для позиционирования меню-тоггла */
+    width: 100%;
 }
 
 header h1 {
@@ -81,7 +80,7 @@ nav {
 .nav-menu li a:hover,
 .nav-menu li a:focus {
     background-color: var(--primary-color);
-    color: white; /* Гарантирует, что текст остаётся белым */
+    color: white;
 }
 
 /* Меню-тоггл для мобильных */
@@ -89,21 +88,13 @@ nav {
     display: none;
 }
 
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-    margin: 5px 0;
-    transition: background-color var(--transition-duration) ease;
-}
-
 /* Герой-секция */
 #hero {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 4rem 0; /* Удалены горизонтальные отступы */
+    padding: 4rem 0;
+    width: 100%;
 }
 
 #hero h2 {
@@ -113,14 +104,14 @@ nav {
 
 /* Основные стили контента */
 main {
-    padding: var(--vertical-padding) 0; /* Только вертикальные отступы */
+    padding: var(--vertical-padding) 0;
 }
 
 section,
 #referral {
     background-color: white;
     margin-bottom: 2rem;
-    padding: var(--vertical-padding) 0; /* Только вертикальные отступы */
+    padding: var(--vertical-padding) 0;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -140,22 +131,18 @@ h3 {
 }
 
 ul {
-    list-style: none; /* Убираем стандартные маркеры списка */
-    padding-left: 1.5rem; /* Отступ слева для размещения галочек */
-    position: relative; /* Для позиционирования псевдоэлементов */
+    list-style: none;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
 ul li::before {
-    content: '✓'; /* Символ галочки */
-    color: var(--primary-color); /* Жёлтый цвет галочки */
+    content: '✓';
+    color: var(--primary-color);
     position: absolute;
-    left: 0; /* Позиционирование слева относительно li */
-    top: 0; /* Выравнивание по верхнему краю */
-    font-size: 1.2rem; /* Размер галочки */
-}
-
-.nav-menu li::before {
-    content: none; /* Убираем галочки из навигационного меню */
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
 }
 
 li {
@@ -203,12 +190,12 @@ dd {
 /* Секция калькулятора */
 #calculator {
     background-color: #f9f9f9;
-    padding: 30px 0; /* Удалены горизонтальные отступы */
+    padding: 30px 0;
 }
 
 .calculator-container {
     background-color: #fff;
-    padding: 30px 0; /* Только вертикальные отступы */
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--primary-color);
@@ -281,7 +268,7 @@ dd {
 /* Секция подачи заявок */
 #apply {
     text-align: center;
-    padding: var(--vertical-padding) 0; /* Только вертикальные отступы */
+    padding: var(--vertical-padding) 0;
 }
 
 /* CTA Кнопка */
@@ -299,10 +286,11 @@ dd {
 
 .apply-now-button:hover {
     background-color: var(--secondary-color);
-    color: white; /* Гарантирует, что текст остается белым */
+    color: white;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
+
 .button-container {
     display: flex;
     justify-content: center;
@@ -315,6 +303,7 @@ footer {
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;
+    width: 100%;
 }
 
 /* Улучшения доступности */
@@ -379,20 +368,12 @@ a:focus {
     object-fit: contain;
 }
 
-/* Стили для навигационного меню */
-.nav-menu li::before {
-    content: none; /* Убираем галочки из навигационного меню */
-}
-
 /* Медиазапросы для адаптивности */
 @media (max-width: 768px) {
-    /* Изменение отступов контейнера */
-    .container {
-        padding: 0 var(--container-padding-mobile);
-        width: 100%;
+    .content-container {
+        padding: 0 var(--content-padding);
     }
 
-    /* Размеры заголовков */
     header h1 {
         font-size: 1.5rem;
     }
@@ -415,7 +396,6 @@ a:focus {
         font-size: 0.9rem;
     }
 
-    /* Меню-тоггл */
     .menu-toggle {
         display: block;
         background: none;
@@ -450,38 +430,17 @@ a:focus {
         padding: 12px 15px;
     }
 
-    /* Изображения в рефералах */
     .referral-image {
         height: auto;
         max-height: 300px;
     }
 
-    /* Удаление горизонтальных отступов из блоков */
-    #hero {
-        padding: 4rem 0; /* Уже без горизонтальных отступов */
-    }
-
-    main {
-        padding: var(--vertical-padding-mobile) 0; /* Только вертикальные отступы */
-    }
-
-    section,
-    #referral {
-        padding: var(--vertical-padding-mobile) 0; /* Только вертикальные отступы */
-    }
-
-    .calculator-container {
-        padding: var(--vertical-padding-mobile) 0; /* Только вертикальные отступы */
-    }
-
-    /* Секция подачи заявок */
-    #apply {
-        padding: var(--vertical-padding-mobile) 0; /* Только вертикальные отступы */
+    main, section, #referral, #calculator, #apply {
+        padding: var(--vertical-padding-mobile) 0;
     }
 }
 
 @media (max-width: 600px) {
-    /* Дополнительные стили для узких экранов */
     .faq-table th,
     .faq-table td {
         min-width: 150px;
