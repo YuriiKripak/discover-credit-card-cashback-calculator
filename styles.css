@@ -473,6 +473,10 @@ a:hover, a:focus {
     }
 }
 
+.faq-table th, .faq-table td {
+    font-size: 0.9rem; /* Это приведет размер шрифта таблицы в соответствие с основным текстом */
+}
+
 .referral-image-container {
     width: 100%;
     text-align: left;
