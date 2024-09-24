@@ -11,6 +11,8 @@
     --transition-duration: 0.3s;
     --border-radius: 5px;
     --font-family-base: Arial, sans-serif;
+    --vertical-padding: 2rem;
+    --vertical-padding-mobile: 1rem;
 }
 
 /* Reset и базовые стили */
@@ -101,7 +103,7 @@ nav {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 0; /* Удалены горизонтальные отступы */
 }
 
 #hero h2 {
@@ -111,14 +113,14 @@ nav {
 
 /* Основные стили контента */
 main {
-    padding: 2rem 0;
+    padding: var(--vertical-padding) 0;
 }
 
 section,
 #referral {
     background-color: white;
     margin-bottom: 2rem;
-    padding: 2rem;
+    padding: var(--vertical-padding);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -195,12 +197,12 @@ dd {
 /* Секция калькулятора */
 #calculator {
     background-color: #f9f9f9;
-    padding: 30px 0;
+    padding: 30px 0; /* Удалены горизонтальные отступы */
 }
 
 .calculator-container {
     background-color: #fff;
-    padding: 30px;
+    padding: 30px; /* Только внутренние отступы */
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--primary-color);
@@ -273,17 +275,24 @@ dd {
 /* Секция подачи заявок */
 #apply {
     text-align: center;
+    padding: var(--vertical-padding) 0;
 }
 
 /* CTA Кнопка */
 .apply-now-button {
-    font-size: 1.2em;
-    padding: 1rem 2rem;
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
 }
 
 .apply-now-button:hover {
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -434,6 +443,29 @@ a:focus {
     .referral-image {
         height: auto;
         max-height: 300px;
+    }
+
+    /* Удаление горизонтальных отступов из блоков */
+    #hero {
+        padding: 4rem 0; /* Уже без горизонтальных отступов */
+    }
+
+    main {
+        padding: var(--vertical-padding-mobile) 0;
+    }
+
+    section,
+    #referral {
+        padding: var(--vertical-padding-mobile);
+    }
+
+    .calculator-container {
+        padding: 30px; /* Горизонтальные отступы уже удалены */
+    }
+
+    /* Секция подачи заявок */
+    #apply {
+        padding: var(--vertical-padding-mobile) 0;
     }
 }
 
