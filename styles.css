@@ -340,3 +340,22 @@ a:hover, a:focus {
     max-width: 100%; /* Ограничивает максимальную ширину изображения */
     display: block; /* Убирает возможные отступы снизу */
 }
+
+.referral-image-container {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.referral-image {
+    max-width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .referral-image {
+        height: auto;
+        max-height: 300px;
+    }
+}
