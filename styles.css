@@ -163,19 +163,30 @@ ol li {
 }
 
 /* Referral section */
+#referral {
+    background-color: white; /* Совпадает с другими секциями */
+    padding: 2rem; /* Устанавливаем такой же отступ, как в других секциях */
+    margin-bottom: 2rem; /* Такой же нижний отступ, как у других блоков */
+    border-radius: 8px; /* Если хотите согласовать с секциями */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем тень для согласования с другими секциями */
+}
+
 #referral h2 {
-    text-align: left;
+    text-align: left; /* Оставляем выравнивание текста влево */
+    margin-bottom: 1rem; /* Совпадает с другими заголовками */
 }
 
 #referral p, #referral ul, #referral ol, #referral dl {
-    text-align: left;
-    margin-bottom: 1rem;
+    text-align: left; /* Оставляем текст выровненным влево */
+    margin-bottom: 1rem; /* Такой же отступ, как у других блоков */
 }
 
-/* Definition list styles */
-dl {
-    margin-bottom: 1.5rem;
+.referral-image-container {
+    margin: 20px 0; /* Оставляем отступы для изображения, как у других секций */
 }
+
+
+
 
 dt {
     font-weight: bold;
