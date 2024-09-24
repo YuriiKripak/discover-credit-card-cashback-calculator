@@ -436,3 +436,11 @@ a:hover, a:focus {
 nav ul li::before {
     content: none;
 }
+
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%; /* Убираем отступы по бокам */
+        padding: 0 10px; /* Уменьшаем внутренние отступы */
+    }
+}
