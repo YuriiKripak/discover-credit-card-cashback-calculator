@@ -324,3 +324,29 @@ a:hover, a:focus {
         font-weight: bold;
     }
 }
+.hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        max-height: 40vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        max-height: 30vh;
+    }
+}
