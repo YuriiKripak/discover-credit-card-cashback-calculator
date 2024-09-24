@@ -1,4 +1,19 @@
-/* Reset and base styles */
+/* CSS-переменные для глобальных значений */
+:root {
+    --primary-color: #FF6000;
+    --secondary-color: #e55600;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: #FFFFFF;
+    --footer-bg: #333333;
+    --container-padding: 20px;
+    --container-padding-mobile: 10px;
+    --transition-duration: 0.3s;
+    --border-radius: 5px;
+    --font-family-base: Arial, sans-serif;
+}
+
+/* Reset и базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -6,36 +21,32 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family-base);
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
+/* Глобальный контейнер */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--container-padding);
 }
 
-/* Header styles */
+/* Стили шапки */
 header {
-    background-color: #FFFFFF;
+    background-color: var(--header-bg);
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Для позиционирования меню-тоггла */
 }
 
 header h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #000000;
+    color: #000;
     font-weight: bold;
     text-align: center;
 }
@@ -53,133 +64,41 @@ nav {
 }
 
 .nav-menu li a {
-    color: #000000;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background-color: #f0f0f0;
-    transition: all 0.3s ease;
+    transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
     display: inline-block;
     text-align: center;
     min-width: 120px;
 }
 
-.nav-menu li a:hover, .nav-menu li a:focus {
-    background-color: #FF6000;
-    color: #FFFFFF;
+.nav-menu li a:hover,
+.nav-menu li a:focus {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
+/* Меню-тоггл для мобильных */
 .menu-toggle {
     display: none;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
-
-    .menu-toggle span {
-        display: block;
-        width: 5px;
-        height: 5px;
-        background-color: #000;
-        border-radius: 50%;
-        margin: 3px;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #FFFFFF;
-        width: 200px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu li {
-        width: 100%;
-    }
-
-    .nav-menu li a {
-        display: block;
-        width: 100%;
-        padding: 12px 15px;
-    }
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+    transition: background-color var(--transition-duration) ease;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        width: 100%;
-        max-width: 200px;
-    }
-
-    nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 12px 15px;
-    }
-}
-
-/* Main content styles */
-main {
-    padding: 2rem 0;
-}
-
-section {
-    background-color: white;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-h2 {
-    color: #FF6000;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-h3 {
-    color: #333;
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.5rem;
-}
-
-/* Hero section */
+/* Герой-секция */
 #hero {
-    background-color: #FF6000;
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
     padding: 4rem 2rem;
@@ -190,26 +109,53 @@ h3 {
     font-size: 2.5rem;
 }
 
-/* Common list styles for all sections */
+/* Основные стили контента */
+main {
+    padding: 2rem 0;
+}
+
+section,
+#referral {
+    background-color: white;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
 ul {
     list-style: none;
     padding-left: 1.5rem;
-}
-
-li {
-    margin-bottom: 0.5rem;
     position: relative;
-    padding-left: 1.5rem;
 }
 
-ul li::before {
+ul.check-list li::before {
     content: '✓';
-    color: #FF6000;
+    color: var(--primary-color);
     position: absolute;
     left: 0;
 }
 
-/* Нумерованные списки сохраняют стандартные стили */
+li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
 ol {
     list-style: decimal;
     padding-left: 1.5rem;
@@ -217,35 +163,10 @@ ol {
 
 ol li {
     margin-bottom: 0.5rem;
-    padding-left: 0; /* Убираем дополнительное смещение для нумерованных списков */
+    padding-left: 0;
 }
 
-/* Referral section */
-#referral {
-    background-color: white; /* Совпадает с другими секциями */
-    padding: 2rem; /* Устанавливаем такой же отступ, как в других секциях */
-    margin-bottom: 2rem; /* Такой же нижний отступ, как у других блоков */
-    border-radius: 8px; /* Если хотите согласовать с секциями */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем тень для согласования с другими секциями */
-}
-
-#referral h2 {
-    text-align: left; /* Оставляем выравнивание текста влево */
-    margin-bottom: 1rem; /* Совпадает с другими заголовками */
-}
-
-#referral p, #referral ul, #referral ol, #referral dl {
-    text-align: left; /* Оставляем текст выровненным влево */
-    margin-bottom: 1rem; /* Такой же отступ, как у других блоков */
-}
-
-.referral-image-container {
-    margin: 20px 0; /* Оставляем отступы для изображения, как у других секций */
-}
-
-
-
-
+/* Описательные списки */
 dt {
     font-weight: bold;
     color: #333;
@@ -258,12 +179,12 @@ dd {
     color: #555;
 }
 
-/* Info block styles */
+/* Блок информации */
 .info-block {
     margin-bottom: 2rem;
 }
 
-/* Important note style */
+/* Важная заметка */
 .important-note {
     background-color: #fff3cd;
     border-left: 4px solid #ffeeba;
@@ -271,7 +192,7 @@ dd {
     margin-bottom: 1rem;
 }
 
-/* Calculator section */
+/* Секция калькулятора */
 #calculator {
     background-color: #f9f9f9;
     padding: 30px 0;
@@ -282,10 +203,10 @@ dd {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 2px solid #FF6000;
+    border: 2px solid var(--primary-color);
     max-width: 600px;
     margin: 0 auto;
-    transition: all 0.3s ease;
+    transition: box-shadow var(--transition-duration) ease, transform var(--transition-duration) ease;
 }
 
 .calculator-container:hover {
@@ -294,7 +215,7 @@ dd {
 }
 
 .calculator-container h3 {
-    color: #FF6000;
+    color: var(--primary-color);
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
@@ -307,11 +228,11 @@ dd {
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
+    transition: border-color var(--transition-duration) ease;
 }
 
 .calculator-container input[type="number"]:focus {
-    border-color: #FF6000;
+    border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 5px rgba(255, 96, 0, 0.3);
 }
@@ -326,15 +247,14 @@ dd {
 
 .calculator-container .grand-total {
     font-weight: bold;
-    color: #FF6000;
+    color: var(--primary-color);
     font-size: 20px;
     margin-top: 15px;
     text-align: center;
 }
 
-/* Add styles for button if present */
 .calculator-container button {
-    background-color: #FF6000;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -343,68 +263,121 @@ dd {
     font-size: 16px;
     width: 100%;
     margin-top: 15px;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-duration) ease;
 }
 
 .calculator-container button:hover {
-    background-color: #e55600;
+    background-color: var(--secondary-color);
 }
 
-/* Apply section */
+/* Секция подачи заявок */
 #apply {
     text-align: center;
 }
 
-/* CTA Button */
+/* CTA Кнопка */
 .cta-button {
     display: inline-block;
-    background-color: #FF6000;
+    background-color: var(--primary-color);
     color: white;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-duration) ease;
 }
 
 .cta-button:hover {
-    background-color: #e55600;
+    background-color: var(--secondary-color);
 }
 
-/* Footer styles */
+/* Стили футера */
 footer {
-    background-color: #333;
+    background-color: var(--footer-bg);
     color: white;
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;
 }
 
-/* Accessibility improvements */
+/* Улучшения доступности */
 a {
-    color: #FF6000;
+    color: var(--primary-color);
     text-decoration: underline;
-    transition: color 0.3s ease;
+    transition: color var(--transition-duration) ease;
 }
 
-a:hover, a:focus {
-    color: #e55600;
+a:hover,
+a:focus {
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
-/* Responsive design */
+/* Стили таблицы FAQ */
+.faq-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    display: block;
+}
+
+.faq-table th,
+.faq-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+.faq-table th {
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+}
+
+.faq-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.faq-table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.faq-table tr:hover {
+    background-color: #f0f0f0;
+    transition: background-color var(--transition-duration) ease;
+}
+
+/* Контейнер для изображений в секции рефералов */
+.referral-image-container {
+    width: 100%;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.referral-image {
+    max-width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+
+/* Стили для навигационного меню */
+.nav-menu li::before {
+    content: none;
+}
+
+/* Медиазапросы для адаптивности */
 @media (max-width: 768px) {
+    /* Изменение отступов контейнера */
+    .container {
+        padding: 0 var(--container-padding-mobile);
+        width: 100%;
+    }
+
+    /* Размеры заголовков */
     header h1 {
         font-size: 1.5rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin-bottom: 0.5rem;
     }
 
     #hero h2 {
@@ -419,110 +392,59 @@ a:hover, a:focus {
         font-size: 1.25rem;
     }
 
-    p, li, dd {
+    p,
+    li,
+    dd {
         font-size: 0.9rem;
     }
-}
 
-.faq-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
-    display: block; /* Чтобы прокрутка применялась ко всей таблице */
-}
-
-.faq-table th {
-    background-color: #f0f0f0;
-    color: #333;
-    font-weight: bold;
-    text-align: left;
-    padding: 12px;
-    border: 1px solid #ddd;
-}
-
-.faq-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-}
-
-.faq-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.faq-table tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.faq-table tr:hover {
-    background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
-}
-
-/* For mobile devices */
-@media (max-width: 600px) {
-    .faq-table {
-        width: 100%;
+    /* Меню-тоггл */
+    .menu-toggle {
         display: block;
-        overflow-x: auto;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
-    
-    .faq-table th, .faq-table td {
-        min-width: 150px;
-        white-space: nowrap;
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: var(--header-bg);
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-}
 
-.faq-table th, .faq-table td {
-    font-size: 0.9rem; /* Это приведет размер шрифта таблицы в соответствие с основным текстом */
-}
+    .nav-menu.active {
+        display: flex;
+    }
 
-.referral-image-container {
-    width: 100%;
-    text-align: left;
-    margin: 20px 0;
-}
+    .nav-menu li {
+        width: 100%;
+    }
 
-.referral-image {
-    max-width: 100%;
-    height: 300px;
-    object-fit: contain;
-}
+    .nav-menu li a {
+        padding: 12px 15px;
+    }
 
-@media (max-width: 768px) {
+    /* Изображения в рефералах */
     .referral-image {
         height: auto;
         max-height: 300px;
     }
 }
-nav ul li::before {
-    content: none;
-}
 
-
-/* Стили для основного контейнера */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Отступы и выравнивание для всех секций и контейнеров */
-main, section, .calculator-container, #hero, #referral {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-/* Для мобильных устройств */
 @media (max-width: 600px) {
-    .container {
-        width: 100%; /* Убираем отступы по бокам */
-        padding: 0 10px; /* Уменьшаем внутренние отступы */
-    }
-
-    main, section, .calculator-container, #hero, #referral {
-        padding-left: 10px;
-        padding-right: 10px;
+    /* Дополнительные стили для узких экранов */
+    .faq-table th,
+    .faq-table td {
+        min-width: 150px;
+        white-space: nowrap;
     }
 }
