@@ -537,5 +537,14 @@
 }
 </script>
     <script type="text/babel" src="calculator.js"></script>
+    <script>
+    function updateReferralLinks() {
+        var links = document.getElementsByClassName('referral-link');
+        for (var i = 0; i < links.length; i++) {
+            links[i].href = CONFIG.referralLink;
+        }
+    }
+    document.addEventListener('DOMContentLoaded', updateReferralLinks);
+</script>
 </body>
 </html>
