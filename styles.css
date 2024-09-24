@@ -81,7 +81,7 @@ nav {
 .nav-menu li a:hover,
 .nav-menu li a:focus {
     background-color: var(--primary-color);
-    color: #fff;
+    color: white; /* Убедитесь, что текст остаётся белым */
 }
 
 /* Меню-тоггл для мобильных */
@@ -293,6 +293,7 @@ dd {
 
 .apply-now-button:hover {
     background-color: var(--secondary-color);
+    color: white; /* Добавлено для сохранения цвета текста */
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
