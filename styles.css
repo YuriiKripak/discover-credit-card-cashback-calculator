@@ -95,7 +95,17 @@ h2 {
 }
 
 /* Referral section */
-#referral {
+#referral h2 {
+    text-align: center;
+}
+
+#referral p, #referral ul, #referral ol {
+    text-align: left;
+}
+
+#referral .cta-button {
+    display: block;
+    margin: 20px auto;
     text-align: center;
 }
 
