@@ -1,6 +1,6 @@
 /* CSS-переменные для глобальных значений */
 :root {
-    --primary-color: #FF6000;
+    --primary-color: #FF6000; /* Жёлтый цвет галочек */
     --secondary-color: #e55600;
     --background-color: #f4f4f4;
     --text-color: #333;
@@ -81,7 +81,7 @@ nav {
 .nav-menu li a:hover,
 .nav-menu li a:focus {
     background-color: var(--primary-color);
-    color: white; /* Гарантирует, что текст остается белым */
+    color: white; /* Гарантирует, что текст остаётся белым */
 }
 
 /* Меню-тоггл для мобильных */
@@ -140,16 +140,22 @@ h3 {
 }
 
 ul {
-    list-style: none;
-    padding-left: 1.5rem;
-    position: relative;
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding-left: 1.5rem; /* Отступ слева для размещения галочек */
+    position: relative; /* Для позиционирования псевдоэлементов */
 }
 
-ul.check-list li::before {
-    content: '✓';
-    color: var(--primary-color);
+ul li::before {
+    content: '✓'; /* Символ галочки */
+    color: var(--primary-color); /* Жёлтый цвет галочки */
     position: absolute;
-    left: 0;
+    left: 0; /* Позиционирование слева относительно li */
+    top: 0; /* Выравнивание по верхнему краю */
+    font-size: 1.2rem; /* Размер галочки */
+}
+
+.nav-menu li::before {
+    content: none; /* Убираем галочки из навигационного меню */
 }
 
 li {
@@ -371,7 +377,7 @@ a:focus {
 
 /* Стили для навигационного меню */
 .nav-menu li::before {
-    content: none;
+    content: none; /* Убираем галочки из навигационного меню */
 }
 
 /* Медиазапросы для адаптивности */
