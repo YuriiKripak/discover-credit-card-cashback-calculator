@@ -422,3 +422,6 @@ a:hover, a:focus {
         max-height: 300px;
     }
 }
+nav ul li::before {
+    content: none;
+}
