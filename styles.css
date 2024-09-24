@@ -438,9 +438,29 @@ nav ul li::before {
 }
 
 
+/* Стили для основного контейнера */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Отступы и выравнивание для всех секций и контейнеров */
+main, section, .calculator-container, #hero, #referral {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Для мобильных устройств */
 @media (max-width: 600px) {
     .container {
         width: 100%; /* Убираем отступы по бокам */
         padding: 0 10px; /* Уменьшаем внутренние отступы */
+    }
+
+    main, section, .calculator-container, #hero, #referral {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
