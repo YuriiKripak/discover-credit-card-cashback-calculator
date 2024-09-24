@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,69 +10,86 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="config.js"></script>
+    <script>
+        function updateReferralLinks() {
+            var links = document.getElementsByClassName('referral-link');
+            for (var i = 0; i < links.length; i++) {
+                links[i].href = CONFIG.referralLink;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateReferralLinks);
+    </script>
 </head>
 <body>
     <header>
-        <h1>Discover Card Referral Program</h1>
-        <nav>
-            <ul>
-                <li><a href="#benefits">Card Benefits</a></li>
-                <li><a href="#referral">Referral Bonus</a></li>
-                <li><a href="#calculator">Cashback Calculator</a></li>
-                <li><a href="#apply">Apply Now</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Discover Card Referral Program</h1>
+            <nav>
+                <ul>
+                    <li><a href="#benefits">Card Benefits</a></li>
+                    <li><a href="#referral">Referral Bonus</a></li>
+                    <li><a href="#calculator">Cashback Calculator</a></li>
+                    <li><a href="#apply">Apply Now</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section id="hero">
-            <h2>Refer a Friend and Both Get a $100 Bonus!</h2>
-            <p>Perfect for students and first-time cardholders. Start building your credit history today.</p>
+            <div class="container">
+                <h2>Refer a Friend and Both Get a $100 Bonus!</h2>
+                <p>Perfect for students and first-time cardholders. Start building your credit history today.</p>
+            </div>
         </section>
 
         <section id="benefits">
-            <h2>Discover it® Cash Back Card Benefits</h2>
-            <ul>
-                <li>5% cashback in rotating categories (up to quarterly maximum)</li>
-                <li>1% cashback on all other purchases</li>
-                <li>Cashback Match for new cardmembers in the first year</li>
-                <li>No annual fee</li>
-                <li>0% intro APR on purchases and balance transfers for 15 months</li>
-                <li>Free FICO® Credit Score</li>
-                <li>U.S.-based customer service</li>
-                <li>Freeze it® on/off switch for your account</li>
-            </ul>
+            <div class="container">
+                <h2>Discover it® Cash Back Card Benefits</h2>
+                <ul>
+                    <li>5% cashback in rotating categories (up to quarterly maximum)</li>
+                    <li>1% cashback on all other purchases</li>
+                    <li>Cashback Match for new cardmembers in the first year</li>
+                    <li>No annual fee</li>
+                    <li>0% intro APR on purchases and balance transfers for 15 months</li>
+                    <li>Free FICO® Credit Score</li>
+                    <li>U.S.-based customer service</li>
+                    <li>Freeze it® on/off switch for your account</li>
+                </ul>
+            </div>
         </section>
 
         <section id="referral">
-            <h2>$100 Referral Bonus</h2>
-            <p>When you refer a friend to Discover, you'll both receive a $100 bonus after they are approved and make their first purchase within 3 months.</p>
-            <a href="#apply" class="cta-button">Get Your Referral Link</a>
+            <div class="container">
+                <h2>$100 Referral Bonus</h2>
+                <p>When you refer a friend to Discover, you'll both receive a $100 bonus after they are approved and make their first purchase within 3 months.</p>
+                <a href="#" class="cta-button referral-link">Get Your Referral Link</a>
+            </div>
         </section>
 
         <section id="calculator">
-            <h2>Cashback Calculator</h2>
-            <div id="calculator-root"></div>
+            <div class="container">
+                <h2>Cashback Calculator</h2>
+                <div id="calculator-root"></div>
+            </div>
         </section>
 
         <section id="apply">
-            <h2>Apply for Your Discover it® Cash Back Card</h2>
-            <p>Ready to start earning cashback and building your credit? Apply now using our referral link!</p>
-            <a href="https://refer.discover.com/your-referral-link" class="cta-button">Apply Now</a>
+            <div class="container">
+                <h2>Apply for Your Discover it® Cash Back Card</h2>
+                <p>Ready to start earning cashback and building your credit? Apply now using our referral link!</p>
+                <a href="#" class="cta-button referral-link">Apply Now</a>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Discover Card Referral Program. This page is not affiliated with or endorsed by Discover Financial Services.</p>
+        <div class="container">
+            <p>&copy; 2024 Discover Card Referral Program. This page is not affiliated with or endorsed by Discover Financial Services.</p>
+        </div>
     </footer>
 
-    <script type="text/babel">
-        // React component will be inserted here
-        ReactDOM.render(
-            React.createElement(DiscoverCardCalculator),
-            document.getElementById('calculator-root')
-        );
-    </script>
     <script type="text/babel" src="calculator.js"></script>
 </body>
 </html>
